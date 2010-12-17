@@ -1,0 +1,87 @@
+{# -*- Mode: Jinja -*-
+  Copyright (C) 2009 Fernando Perez - Fernando.Perez@berkeley.edu.
+#}
+{% extends "!sphinxdoc/layout.html" %}
+
+{# Any other information in the <head> part goes here: #}
+{%- block extrahead %} {% endblock %}
+
+{# A header at the beginning of every page, with an image.
+   WARNING: be careful to not use an image with a filename that has the words
+   'banner' or 'ad' in it (even as a sub-word), because it may mysteriously
+   disappear in many browsers that have ad-blocking tools like AdBlock
+  #}
+  
+{% block header %}
+<div class="header">
+ <a href="{{pathto('index')}}">
+  <img src="{{ pathto('_static/top_mountains_clouds.jpg', 1) }}"
+	       alt="Fernando Pérez"></a>
+</div>
+  {{ super() }}
+{% endblock %}
+
+{# This block gets put at the top of the sidebar #}
+{% block sidebarlogo %}
+<h4> Site Navigation </h4>
+  <ul class="simple">
+    <li><a class="reference external"
+	href="{{pathto('research/index')}}">Research</a></li>
+    <li><a class="reference external"
+	href="{{pathto('talks/index')}}">Talks</a></li>
+    <li><a class="reference external"
+	href="{{pathto('teaching/index')}}">Teaching</a></li>
+    <li><a class="reference external"
+	href="{{pathto('py4science/index')}}">Py4Science</a></li>
+    <li><a class="reference external"
+	href="{{pathto('code/index')}}">Software</a></li>
+    <li><a class="reference external"
+	href="{{pathto('personal')}}">Personal</a></li>
+  </ul>
+{% endblock %}
+
+{# I had to copy the whole search block just to change the rendered text,
+   so it doesn't mention modules or classes #}
+{%- block sidebarsearch %}
+{%- if pagename != "search" %}
+<div id="searchbox" style="display: none">
+  <h3>{{ _('Search this site') }}</h3>
+    <form class="search" action="{{ pathto('search') }}" method="get">
+      <input type="text" name="q" size="11" />
+      <input type="submit" value="{{ _('Go') }}" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+{%- endif %}
+
+{# The sidebarsearch block is the last one available in the default sidebar()
+   macro, so the only way to add something to the bottom of the sidebar is to
+   put it here, at the end of the sidebarsearch block (before it closes).
+   #}
+
+<hr>
+
+<div class="header">
+     {# BIC/HWNI text and logos as links #}
+     
+     <a href="http://bic.berkeley.edu">
+     <p>Henry H. Wheeler, Jr.<br>
+     	Brain Imaging Center</p>
+     </a>
+     <a href="http://bic.berkeley.edu">
+     <img src="{{ pathto('_static/bicbutton.jpg', 1) }}"
+     alt="Henry H. Wheeler Brain Imaging Center (BIC)"></a>
+
+     <a href="http://neuroscience.berkeley.edu">
+     <p>Helen Wills<br>
+        Neuroscience Institute</p></a>
+     <a href="http://neuroscience.berkeley.edu">
+       <img src="{{ pathto('_static/hwni.jpg', 1) }}"
+       	alt="Helen Wills Neuroscience Institute (HWNI)"></a>
+</div>
+
+{%- endblock %}

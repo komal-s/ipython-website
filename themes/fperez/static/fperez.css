@@ -1,0 +1,141 @@
+/*
+ * Sphinx stylesheet -- fperez theme, modifies sphinxdoc.
+
+  Copyright (C) 2009 Fernando Perez - Fernando.Perez@berkeley.edu.
+
+  You are welcome to use these tools to build your own site, but please do not
+  reuse my color schemes and site images.  This CSS file should make it easy to
+  tweak the defaults in sphinxdoc.css, but you should refer to that one for the
+  full sources and the entire layout machinery.
+
+*/
+
+@import url("sphinxdoc.css");
+
+body {
+    font-family: /*'Gill Sans', */
+                 'Lucida Grande', 
+                 'Tahoma',  'Helvetica', 'Arial', 'Verdana',  
+                 'Lucida Sans Unicode','Geneva',
+		 sans-serif;
+
+    font-size: 14px;
+    
+    letter-spacing: 0.00em;
+    line-height: 120%;
+    /* Disable the border altogether do it doesn't get drawn around the header,
+       because the header is still part of the body. */
+    border: 0px;
+    
+    /* Main page background */
+    /*background-color: #4D6879; */
+    background-color: #42708F;  /* Sky blue */
+
+    margin: 0px 40px 0px 40px;
+    min-width: 720px;
+}
+
+/* this is the box around the sphinxsidebar, I don't know why the name */
+div.bodywrapper {
+    /* The width should be equal to the sidebar width + padding */
+    margin: 0 200px 0 0;
+}
+
+/* Used for the banner/logo atop each page */
+div.header {
+    text-align: center;
+    /* 2-value padding is top/bottom, left/right */
+    /* 3-value padding is top, left/right, bottom */
+    padding: 0px;
+}
+
+/* Some image padding styles so text doesn't run into figures */
+img.align-right {
+    /* margins are read clockwise: top right bottom left */
+    margin: 5px 0px 5px 10px;
+    /*border: 1px solid #666;
+    padding: 2px;*/
+}
+
+img.align-left {
+    margin: 5px 10px 5px 0px;
+    /*border: 1px solid #666;
+    padding: 2px;*/
+}
+
+/* 'figures' are images with a caption */
+div.figure {
+    /* Smaller font in captions */
+    font-size: 0.9em;
+    }
+
+/* These are mostly color scheme changes from sphinxdoc to my colors */
+div.related ul li a {
+    color: #B46621;
+}
+
+div.related ul li a:hover {
+    background-color: #e0e0e0;
+}
+
+div.document {
+    background-color: white;
+}
+
+/* Leave a little space between items for normal bullet lists */
+li {
+     margin: 0 0 0.5em 0;
+}
+
+/* But for the lists in the sidebar, no extra space */
+div.sphinxsidebar li {
+     margin: 0;
+}
+
+/* I want a smaller sidebar than sphinxdoc, and with smaller fonts */
+div.sphinxsidebar {
+    padding: 0.5em 15px 15px 0;
+    width: 170px;
+    font-size: 0.9em;
+}
+
+div.sphinxsidebar a:hover {
+    background-color: #e0e0e0;
+    }
+
+div.sphinxsidebar h4, div.sphinxsidebar h3 {
+    background-color: #1d406c;
+}
+
+div.footer {
+    color: #4A5159;
+    background-color: #D0E2F7;
+}
+
+div.body {
+    background-color: white;
+}
+
+/* -- body styles ----------------------------------------------------------- */
+a {
+    color: #b46621;
+}
+
+cite, code, tt, pre {
+    font-family: 'Consolas', 'Lucida Console', 'Deja Vu Sans Mono',
+                 'Bitstream Vera Sans Mono', 'Monaco', monospace;
+    font-size: 0.95em;
+    line-height: 120%;
+    letter-spacing: 0.0em;
+}
+
+div.admonition p.admonition-title,
+div.warning p.admonition-title {
+    background-color: #42708F;
+}
+
+/* I want reST definition-lists to boldface their heading term */
+dl.docutils dt {
+    font-weight: bold;
+}
+
